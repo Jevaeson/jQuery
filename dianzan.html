@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>点赞</title>
+        <style>
+        .btn{
+          color:#999;
+        }
+        .active{
+            color:hotpink;
+        }
+        span{
+        -moz-user-select:none;/*火狐*/
+        -webkit-user-select:none;/*webkit浏览器*/
+        -ms-user-select:none;/*IE10*/
+        -khtml-user-select:none;/*早期浏览器*/
+        user-select:none;
+        }
+
+
+
+        </style>
+    </head>
+    <body>
+        <span>点个赞吧</span>
+        <button class="btn">❤</button>
+        <script src="js/jquery-3.3.1.js"></script>
+        <script>
+            // $('.btn').click(function() {
+            //      $(this).toggleClass('active')
+            // });
+
+
+
+            // var selected = 0
+            // $('.btn').click(function() {
+            //     if( selected == 0){
+            //         selected = 1
+            //         $(this).addClass('active')
+            //     }else{
+            //         selected = 0
+            //         $(this).removeClass('active')
+            //     }
+            // });
+
+
+            $('.btn').click(function() {
+                if ( $(this).hasClass("active")){
+                    $(this).removeClass('active')
+                }else{
+                    $(this).addClass('active')
+                }
+
+
+
+
+            });
+
+
+        </script>
+    </body>
+</html>

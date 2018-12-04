@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+        <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: #ccc;
+        }
+
+        </style>
+    </head>
+    <body>
+        <button class="btn">按钮</button>
+        <div class="box"></div>
+        <script src="js/zepto.min.js"></script>
+        <script src="js/touch.js"></script>
+        <script src="js/fx.js"></script>
+        <script src="js/fx-method.js"></script>
+
+        <script>
+           $('.btn').swipeLeft(function(){
+            console.log(1)
+           })
+           // $('.btn').tap(function(){
+           //   $('.box').css('display','none')
+           // })
+           $('.btn').tap(function(){
+             $('.box').fadeOut(1000)
+           })
+        </script>
+
+    </body>
+</html>

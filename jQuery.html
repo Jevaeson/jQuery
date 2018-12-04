@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Document</title>
+        <link rel="stylesheet" type="text/css" href="">
+        <style>
+          .box{
+            width: 300px;
+            height: 300px;
+            background-color: red;
+          }
+
+
+
+        </style>
+    </head>
+    <body>
+        <!-- html css javascript -->
+        <!-- javascript 工具库 jquery -->
+        <div class="box"></div>
+        <button class="btnb">变蓝</button>
+        <button class="btnr">变红</button>
+        <button class="btnf">变没</button>
+        <script src="js/jquery-3.3.1.js"></script>
+        <!-- cdn jquery这种js类型的工具库 上传到我们自己的服务器加载很慢 使用cdn路径 -->
+        <script>
+            // js代码
+            // 点击 button 改变 box 颜色
+            // 1.选择器 $(css选择器)
+            // 2.绑定点击事件 xxx.click(function(){要做的事情})
+            // 3.找box
+            // 4.改box的背景色
+            $('.btnb').click(function(event) {
+                console.log(1)
+                $('.box').css({'background-color':'blue','opacity':'0.5'})
+            });
+            $('.btnr').click(function(event) {
+                $('.box').css('background-color','red')
+            });
+            $('.btnf').click(function(event) {
+                $('.box').css('background-color','#fff')
+            });
+            // jq选择器  p:last p:first
+            //          ：eq（数字）数字从0开始 0代表第一个
+            //          input：checkbox :radio :password
+            //          even odd 从0开始
+            // 事件 click mouseenter移入 mouseleave移出 dblclivk双击 focus获得焦点 blur失去焦点 change 表单的点击事件
+            // 方法
+            // 修改多个样式 .css({'名':'值','名':'值'})
+        </script>
+    </body>
+</html>

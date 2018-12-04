@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="css/reset.css">
+        <title>Document</title>
+        <style>
+        .box{
+            position:relative;
+            margin-top: 100px;
+            margin-left: 100px;
+            float: left;
+        }
+        .box>a{
+            display: block;
+            width: 230px;
+            height: 305px;
+            background-color: #fff;
+
+        }
+        .box>a img{
+            display: block;
+            margin: 0 auto;
+            margin-top: 30px;
+            opacity:1;
+            transition: opacity 200ms;
+        }
+        .box:hover>a img{
+            opacity:0.8;
+        }
+        .box>a p{
+            font-size: 14px;
+            line-height: 18px;
+            color: #333;
+            padding-left: 10px;
+            margin-top: 20px;
+        }
+        .box>a i{
+            display: block;
+            font-size: 14px;
+            color: #e33333;
+            text-align: center;
+            margin-top: 20px;
+            padding-right: 5px;
+        }
+        .box>a i span{
+            font-size: 12px;
+        }
+
+
+        .box .more{
+            position: absolute;
+            width: 100%;
+            height: 120px;
+            bottom: 0;
+            left: 0;
+            background: rgba(255, 255, 255, 0.8);
+            opacity: 0;
+            transition:opacity 200ms;
+        }
+        .box:hover .more{
+            opacity:1;
+        }
+        .box .more a{
+            display: block;
+            position:relative;
+            margin: 24px auto 0;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #222;
+            background-color:#222;
+            color: #fff;
+            text-align: center;
+            line-height: 60px;
+            transition: all ease 600ms;
+            overflow: hidden;
+            font-size: 12px;
+            transform: scale(0);
+            opacity:0.7;
+        }
+        .box:hover .more a{
+            transform: scale(1);
+        }
+        .box .more a:hover{
+            opacity:1;
+        }
+
+        .box .more a i{
+            display: block;
+            position: absolute;
+            left:0;
+            top:0;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            border: 0 solid #111;
+            transition: all ease 600ms;
+        }
+        .box .more a:hover i{
+            width: 0;
+            height: 0;
+            border:30px solid #111;
+        }
+
+        .box .more a span{
+            position:relative;
+            z-index: 1;
+        }
+        </style>
+    </head>
+    <body>
+      <div class="box">
+          <a href="#">
+            <img src="images/luoji.jpg" alt="" />
+            <p>罗技（Logitech）M185（M186）无线鼠标 黑色灰边</p>
+            <i><span>￥</span>52.00</i>
+          </a>
+          <div class="more">
+              <a href="#">
+                  <i></i>
+                  <span>找相似</span>
+              </a>
+          </div>
+      </div>
+    </body>
+</html>

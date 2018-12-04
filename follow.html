@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="css/reset.css">
+        <title>follow</title>
+        <style>
+        .box{
+            float: left;
+            position:relative;
+        }
+        .box .small-pic{
+            display: block;
+            float: left;
+            width: 417px;
+            height: 417px;
+        }
+        .box .big-pic{
+            width: 600px;
+            height: 600px;
+            display: block;
+            position:absolute;
+            top:417px;
+            left:0px;
+            display: none;
+        }
+
+
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <img src="images/miao.jpg" alt="" class="small-pic" />
+            <img src="images/miao2.jpg" alt="" class="small-pic" />
+            <img src="images/miao3.jpg" alt="" class="small-pic" />
+            <img src="images/miao4.jpg" alt="" class="small-pic" />
+            <img src="" alt="" class="big-pic"/>
+        </div>
+        <script src="js/jquery-3.3.1.js"></script>
+        <script>
+            // mousemove
+            // 1.划入小图出现对应大图
+            // 2.在小图上移动大图 跟着鼠标走
+            // 需要鼠标的坐标 参考事件对象 pageX pageY
+            // event.type 事件类型
+            // event.which 键盘码 鼠标码
+            // 原生JS有的event属性
+            // event.clientX 窗口
+            // event.clientY 窗口
+            // jquery 方法获取元素的宽高
+            // 3.移出小图 大图消失
+            $('.small-pic').mouseenter(function() {
+               var picSrc = $(this).attr('src')
+               $('.big-pic').attr('src',picSrc)
+            });
+            $('.small-pic').mouseenter(function() {
+                $('.big-pic').css('display','block')
+            });
+            $('.small-pic').mouseleave(function() {
+                $('.big-pic').css('display','none')
+            });
+            $('.small-pic').mousemove(function(event) {
+                // 获取鼠标横坐标
+                var x = event.pageX + 20
+                var y = event.pageY + 20
+                var bodyWidth = $('body').width()
+                var imgWidth = $('.big-pic').width()
+                if (x+imgWidth > bodyWidth) {
+                    // 出现横向滚动条
+                    // 修改大图定位的横坐标 修改成 x -（x+imgWidth-bodyWidth)
+                    // x = bodyWidth - imgWidth
+                    x = x - imgWidth
+                }
+                $('.big-pic').css('left',x)
+                $('.big-pic').css('top',y)
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="css/reset.css">
+        <title>Document</title>
+        <style>
+        ul{
+            overflow: hidden;
+            margin-top: 100px;
+            margin-left: 100px;
+        }
+        ul li{
+            float: left;
+            position:relative;
+        }
+        ul li a{
+            font-size: 16px;
+            display: block;
+            line-height: 50px;
+            padding: 0px 10px;
+            transition: all 1s;
+        }
+        ul li a:first-child{
+            background-color:brown;
+            color:#fff;
+            position:relative;
+        }
+        ul li a:last-child{
+            background-color: #ccc;
+            color:#111;
+            position:absolute;
+        }
+        ul li:hover a{
+            transform:translate(0px, -50px)
+        }
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li>
+                <a href="#">HOME</a>
+                <a href="#">HOME</a>
+            </li>
+            <li>
+                <a href="#">SERVICES</a>
+                <a href="#">SERVICES</a>
+            </li>
+            <li>
+                <a href="#">PORTFLIO</a>
+                <a href="#">PORTFLIO</a>
+            </li>
+            <li>
+                <a href="#">BLOG</a>
+                <a href="#">BLOG</a>
+            </li>
+            <li>
+                <a href="#">ABOUT</a>
+                <a href="#">ABOUT</a>
+            </li>
+            <li>
+                <a href="#">CONTACT</a>
+                <a href="#">CONTACT</a>
+            </li>
+        </ul>
+    </body>
+</html>

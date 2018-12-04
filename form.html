@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>form</title>
+    </head>
+    <body>
+        <form action="">
+            <input type="checkbox" id="agree" />
+            <label for="agree">是否同意</label>
+            <button disabled>注册</button>
+        </form>
+        <div>
+            <input type="checkbox" class="all"/><label for=>全选</label>
+            <br />
+            <input type="checkbox" class="radio" />
+            <br />
+            <input type="checkbox" class="radio" />
+            <br />
+            <input type="checkbox" class="radio" />
+            <br />
+            <input type="checkbox" class="radio" />
+            <br />
+            <input type="checkbox" class="all"/><label for=>全选</label>
+        </div>
+        <script src="js/jquery-3.3.1.js"></script>
+        <script>
+            // prop('checked')方法 获取 checkbox 的当前状态 是选中的话 得到true
+            $('#agree').change(function() {
+                 var state = $(this).prop('checked')
+                 console.log(state)
+                 if(state == true){
+                    $('button').removeAttr('disabled')
+                 }else{
+                    $('button').attr('disabled',true)
+                 }
+            });
+            $('button').click(function() {
+                // 阻止提交后 删除对勾
+                event.preventDefault()
+                $('#agree').prop('checked',true)
+
+            });
+
+            // 购物车选择做法
+            // 1.实现点击某个全选 所有其他的checkbox 跟当前点击的全选一致
+            $('.all').change(function() {
+                var state = $(this).prop('checked')
+                $(this).siblings('input:checkbox').prop('checked',state)
+            });
+            $('.radio').change(function() {
+                var state = $(this).prop('checked')
+                // 如果是false 那么直接让全选变false
+                // 如果是true 那么需要判断 其他三个是否也为true，都为true的话 全选选中
+                // $('.radio').each(function(){}) 该方法的作用是  查找 each 前面的每一个人,分别执行 function 里面的内容, 内的 $(this) 指的就是当前查找到的那个
+                // $('.radio').each(function(){
+                //     $(this).prop('checked',true)
+                // });
+                if(state == false){
+                    $('.all').prop('checked',false)
+                }else{
+                    var allState = true
+                    $('.radio').each(function() {
+                        var state1 = $(this).prop('checked')
+                        if(state1 == false){
+                            allState = false
+                        }
+                    });
+                    $('.all').prop('checked',allState)
+                }
+            });
+
+
+        </script>
+    </body>
+</html>

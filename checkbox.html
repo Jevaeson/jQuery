@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    label{
+      -moz-user-select:none;/*火狐*/
+      -webkit-user-select:none;/*webkit浏览器*/
+      -ms-user-select:none;/*IE10*/
+      -khtml-user-select:none;/*早期浏览器*/
+      user-select:none;
+    }
+    input[type=checkbox]{
+      display: none;
+    }
+    input[type=checkbox] + label{
+      font-size: 14px
+    }
+    input[type=checkbox] + label span{
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+      border:1px solid yellowgreen;
+      background-size: 100%;
+      background-repeat: no-repeat;
+      vertical-align: middle;
+      margin-left: 10px;
+    }
+    #size1 + label span{
+      margin-left: 16px;
+    }
+    #size3 + label span{
+      margin-left: 17px;
+    }
+    input[type=checkbox]:checked + label span{
+      background-image: url('./images/gogogo.png');
+    }
+  
+  
+  </style>
+</head>
+<body>
+  <input type="checkbox" id="size1">
+  <label for="size1">S<span></span></label>
+  <br>
+  <input type="checkbox" id="size2">
+  <label for="size2">M<span></span></label>
+  <br>
+  <input type="checkbox" id="size3">
+  <label for="size3">L<span></span></label>
+  <br>
+</body>
+</html>

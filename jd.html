@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="css/reset.css">
+        <style>
+        ul{
+            margin-left: 100px;
+            margin-top: 100px;
+        }
+        ul li{
+            float: left;
+        }
+        ul li .title{
+            padding: 8px 20px 10px 5px;
+            background-color: #e3e4e5;
+            width: 50px;
+            background-image: url( images/down1.jpg);
+            background-repeat: no-repeat;
+            background-position: 55px center;
+            border:1px solid #e3e4e5;
+            border-bottom: none;
+            z-index: 10;
+            position:absolute;
+        }
+        ul li .title a{
+            color:#999;
+            font-size: 12px;
+        }
+        ul li .more{
+            width: 280px;
+            height: 161px;
+            background-color: #fff;
+            border:1px solid #ccc;
+            position:absolute;
+            top:134px;
+            display:none;
+            z-index: 1;
+        }
+        ul li .more .up,.down{
+            padding: 10px 0 10px 15px;
+            overflow: hidden;
+        }
+        ul li .more .up{
+            border-bottom: 1px solid #f1f1f1;
+        }
+        ul li .more .left,.right{
+            float: left;
+            width: 126px;
+        }
+        ul li .more .item{
+            line-height: 24px;
+        }
+        ul li .more .item a{
+            color: #999;
+            font-size: 12px;
+        }
+        ul li .title a:hover{
+            color:#e33333;
+        }
+        ul li .more .item a:hover{
+            color:#e33333;
+        }
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li>
+                <div class="title"><a href="#">我的京东</a></div>
+                <div class="more">
+                  <div class="up">
+                    <div class="left">
+                        <div class="item"><a href="#">待处理订单</a></div>
+                        <div class="item"><a href="#">返修退换货</a></div>
+                        <div class="item"><a href="#">降价商品</a></div>
+                    </div>
+                    <div class="right">
+                        <div class="item"><a href="#">消息</a></div>
+                        <div class="item"><a href="#">我的问答</a></div>
+                        <div class="item"><a href="#">我的关注</a></div>
+                    </div>
+                 </div>
+                 <div class="down">
+                    <div class="left">
+                        <div class="item"><a href="#">我的京豆</a></div>
+                        <div class="item"><a href="#">我的白条</a></div>
+                    </div>
+                    <div class="right">
+                        <div class="item"><a href="#">我的优惠券</a></div>
+                        <div class="item"><a href="#">我的理财</a></div>
+                    </div>
+                 </div>
+                </div>
+            </li>
+        </ul>
+        <script src="js/jquery-3.3.1.js"></script>
+        <script>
+            $('ul li').mouseenter(function(event) {
+                $('.more').css('display','block')
+                $('.title').css('background-color','#fff')
+                $('.title').css('background-image','url( images/down2.jpg)')
+                $('.title').css('border','1px solid #ccc')
+                $('.title').css('border-bottom','none')
+            });
+            $('ul li').mouseleave(function(event) {
+                $('.more').css('display','none')
+                $('.title').css('background-color','#e3e4e5')
+                $('.title').css('background-image','url( images/down1.jpg)')
+                $('.title').css('border','1px solid #e3e4e5')
+                $('.title').css('border-bottom','none')
+            });
+        </script>
+    </body>
+</html>

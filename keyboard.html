@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="css/reset.css">
+        <title>keyboard</title>
+    </head>
+    <body>
+        <input type="text" class="search" />
+        <button>搜索</button>
+        <script src="js/jquery-3.3.1.js"></script>
+        <script>
+            // 键盘事件
+            $('button').click(function() {
+                // 获取input输入框内输入的内容 .val()
+                // 弹出警告框
+                // alert('你点啥呢？')
+                var txt = $('.search').val()
+                alert(txt)
+            });
+            // 键盘事件 keydown keypress keyup
+            $('.search').keypress(function(event) {
+                var code = event.which
+                if(code == 13){
+                    // trigger()可以模拟其他元素的事件触发
+                    $('button').trigger('click')
+                    // var txt = $('.search').val()
+                    // alert(txt)
+                }
+            });
+        </script>
+    </body>
+</html>

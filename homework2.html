@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="css/reset.css">
+        <title>homework2</title>
+        <style>
+        body{
+            background-color: #111;
+        }
+        .box{
+            width: 1170px;
+            height: 393px;
+            overflow: hidden;
+            margin:0 auto;
+            position:relative;
+        }
+        .box .box0{
+            width: 234px;
+            height: 393px;
+            overflow:hidden;
+            float: left;
+        }
+        .box img{
+            display: block;
+            opacity:0.4;
+        }
+        .box .box0:hover img{
+            opacity:1;
+        }
+        .box .box0:last-child{
+            position:absolute;
+            right:0;
+        }
+
+
+
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <div class="box0"><img src="images/slide-1.jpg" alt="" /></div>
+            <div class="box0"><img src="images/slide-2.jpg" alt="" /></div>
+            <div class="box0"><img src="images/slide-3.jpg" alt="" /></div>
+            <div class="box0"><img src="images/slide-4.jpg" alt="" /></div>
+            <div class="box0"><img src="images/slide-5.jpg" alt="" /></div>
+        </div>
+
+
+
+        <script src="js/jquery-3.3.1.js"></script>
+        <script>
+             $('.box0').mouseenter(function() {
+                  $(this).stop().animate({'width':'770px'},1000)
+                  $(this).siblings().stop().animate({'width':'100px'},1000)
+             });
+             $('.box0').mouseleave(function() {
+                  $('.box0').stop().animate({'width':'234px'},1000)
+             });
+        </script>
+    </body>
+</html>

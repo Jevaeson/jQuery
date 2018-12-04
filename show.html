@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="css/reset.css">
+        <title>Document</title>
+    </head>
+    <style>
+    .show ul{
+        float: left;
+        margin-right: 20px;
+    }
+    .show ul li img{
+        display: block;
+        width: 200px;
+    }
+    .show .big-pic{
+        width: 1000px;
+    }
+    </style>
+    <body>
+        <div class="show">
+            <ul>
+                <li><img src="images/1.jpg" alt="" /></li>
+                <li><img src="images/2.jpg" alt="" /></li>
+                <li><img src="images/3.jpg" alt="" /></li>
+                <li><img src="images/4.jpg" alt="" /></li>
+                <li><img src="images/5.jpg" alt="" /></li>
+            </ul>
+            <img class="big-pic" src="images/1.jpg" alt="" />
+        </div>
+        <script src="js/jquery-3.3.1.js"></script>
+        <script>
+            // 每当划过一个小图的时候 要获取小图的 src 将这个 src 给到 大图的 src 上
+            // .attr('属性名')  获取属性名对应的属性值
+            // .attr('属性名','属性值')  设置某个属性的属性值
+            // html的属性(开始标签内部写的东西都称为属性)
+            $('.show li img').mouseenter(function() {
+               var picSrc = $(this).attr('src')
+               $('.show .big-pic').attr('src',picSrc)
+            });
+        </script>
+    </body>
+</html>

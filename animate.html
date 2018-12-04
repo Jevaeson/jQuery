@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>animate</title>
+        <style>
+        @keyframes flyleft{
+            0%{transform: translateX(-200px);}
+            100%{transform: translateX(20px);}
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: #ccc;
+            border-radius: 50%;
+            /*display:none;
+            animation: flyleft 1s forwards;*/
+        }
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            display: none;
+        }
+        .box2{
+            width: 200px;
+            height: 200px;
+            background-color:yellow;
+        }
+        .box3{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: pink;
+        }
+        .box4{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: green;
+        }
+        .box5{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: blue;
+        }
+
+        </style>
+    </head>
+    <body>
+        <button class="btn">按钮</button>
+        <button class="btn1">show</button>
+        <button class="btn2">hide</button>
+        <button class="btn3">toggle</button>
+        <button class="btn4">slideDown</button>
+        <button class="btn5">slideUp</button>
+        <button class="btn6">slideToggle</button>
+        <button class="btn7">fadeIn</button>
+        <button class="btn8">fadeOut</button>
+        <button class="btn9">fadeToggle</button>
+        <div class="box"></div>
+
+        <button class="btn10">出现</button>
+        <div class="box1"></div>
+
+        <button class="btn11">按我</button>
+        <div class="box2"></div>
+        <button class="btn12">动一哈</button>
+        <div class="box3"></div>
+        <div class="box4"></div>
+        <div class="box5"></div>
+
+        <script src="js/jquery-3.3.1.js"></script>
+        <script>
+            // jQuery 动画方法
+            // 一个元素从消失到出现的效果 transition 给消失出现的元素加不了过渡
+            // css3动画 会在元素消失display none出现display block的时候执行
+            // $('.btn').click(function() {
+            //         $('.box').css('display','block')
+            // });
+            // show hide
+            $('.btn1').click(function() {
+                $('.box').show(1000)
+            });
+            $('.btn2').click(function() {
+                // hide（时间） ms数
+                $('.box').hide(1000)
+            });
+            $('.btn3').click(function() {
+                $('.box').toggle(1000)
+            });
+            // 高度变化
+            $('.btn4').click(function() {
+                $('.box').slideDown(1000)
+            });
+            $('.btn5').click(function() {
+                $('.box').slideUp(1000)
+            });
+            $('.btn6').click(function() {
+                $('.box').slideToggle(1000)
+            });
+            // opacity变化
+            $('.btn7').click(function() {
+                $('.box').fadeIn(1000)
+            });
+            $('.btn8').click(function() {
+                $('.box').fadeOut(1000)
+            });
+            $('.btn9').click(function() {
+                $('.box').fadeToggle(1000,function(){
+                    console.log(1)
+                })
+            });
+            // jquery的动画不会影响其他语句的执行 也就是写在动画后面的语句不会在动画执行完毕之后再执行
+            // 所有的jquery动画方法，都可以写回调
+            // 回调：当某个动画执行完毕之后想要执行其他的事
+            // jquery 动画回调写法  .xxx(1000,function(){动画执行完毕之后做的事})
+
+            // 示例
+            // box默认是消失的 点击一下按钮 下拉出现（2000ms）,然后再渐变消失(2000ms)
+            $('.btn10').click(function() {
+                $('.box1').slideDown(1000,function(){
+                    $('.box1').fadeOut(1000)
+                })
+            });
+
+            // 自定义动画效果
+            $('.btn11').click(function() {
+                // 让box2 1s内宽度100px
+                $('.box2').animate({'width':'100px'},1000,function(){
+                    $('.box2').animate({'width':'200px'},1000)
+                })
+            });
+            $('.btn12').click(function() {
+                $('.box3').animate({'margin-left':'100px'},1000,function(){
+                    $('.box4').animate({'margin-left':'100px'},1000,function(){
+                        $('.box5').animate({'margin-left':'100px'},1000,function(){
+                            $('.box3').animate({'margin-left':'0px'},1000,function(){
+                               $('.box4').animate({'margin-left':'0px'},1000,function(){$('.box5').animate({'margin-left':'0px'},1000)
+                               })
+                            })
+                        })
+                    })
+                })
+            });
+        </script>
+    </body>
+</html>

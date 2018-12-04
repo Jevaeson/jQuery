@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="css/reset.css">
+        <title>Document</title>
+        <style>
+        .box{
+            width: 670px;
+            height: 329px;
+            overflow: hidden;
+            position:relative;
+        }
+        .box .pic{
+            width: 3350px;
+            transition: transform 1s;
+        }
+        .box .pic a img{
+            display: block;
+            float: left;
+        }
+        .box .list{
+            position:absolute;
+            bottom:20px;
+            right:20px;
+        }
+        .box .list li{
+            float: left;
+        }
+        .box .list li a{
+            color:#111;
+            line-height: 20px;
+            padding: 0px 10px;
+            background-color: #fff;
+            border:1px solid #ccc
+        }
+
+
+
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <div class="pic clearfix">
+                <a href="#"><img src="images/gracetan_01.jpg" alt="" /></a>
+                <a href="#"><img src="images/gracetan_02.jpg" alt="" /></a>
+                <a href="#"><img src="images/gracetan_03.jpg" alt="" /></a>
+                <a href="#"><img src="images/gracetan_04.jpg" alt="" /></a>
+                <a href="#"><img src="images/gracetan_05.jpg" alt="" /></a>
+            </div>
+            <ul class="list clearfix">
+                <li><a href="javascript:;">1</a></li>
+                <li><a href="javascript:;">2</a></li>
+                <li><a href="javascript:;">3</a></li>
+                <li><a href="javascript:;">4</a></li>
+                <li><a href="javascript:;">5</a></li>
+            </ul>
+        </div>
+        <script src="js/jquery-3.3.1.js"></script>
+        <script>
+            $('.list li a').click(function(event) {
+                var leftNum = $(this).parent().index() * -670 + 'px'
+                console.log(leftNum)
+                // 以下 leftNum是变量我们需要单独放出来 字符串用引号括起来
+                $('.pic').css('transform','translate('+leftNum+',0px)')
+            });
+            // $('.list li:eq(0) a').click(function(event) {
+            //     $('.pic').css('transform','translate(0px,0px)')
+            // });
+            // $('.list li:eq(1) a').click(function(event) {
+            //     $('.pic').css('transform','translate(-670px,0px)')
+            // });
+            // $('.list li:eq(2) a').click(function(event) {
+            //     $('.pic').css('transform','translate(-1340px,0px)')
+            // });
+            // $('.list li:eq(3) a').click(function(event) {
+            //     $('.pic').css('transform','translate(-2010px,0px)')
+            // });
+            // $('.list li:eq(4) a').click(function(event) {
+            //     $('.pic').css('transform','translate(-2680px,0px)')
+            // });
+        </script>
+    </body>
+</html>

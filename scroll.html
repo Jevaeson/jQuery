@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="css/reset.css">
+        <link rel="stylesheet" type="text/css" href="css/iconfont.css">
+        <title>scroll</title>
+        <style>
+        body{
+            height: 5000px;
+        }
+        .back{
+            position:fixed;
+            bottom:20px;
+            right:20px;
+            display: none;
+        }
+        /*.box1{
+            width: 200px;
+            height: 200px;
+            background-color: #ccc;
+            overflow: auto;
+        }
+        .box2{
+            width: 200px;
+            height: 2000px;
+            background-color: pink;
+        }*/
+        .search{
+            width: 100%;
+            height: 50px;
+            background-color:#a91935;
+            display: none;
+            position:fixed;
+            top:0;
+        }
+        .search input{
+            width: 50%;
+            margin-top: 12px;
+            margin-left: 200px;
+            outline:none;
+        }
+        ul{
+            position:fixed;
+            top:200px;
+            right:0;
+            display:none;
+
+        }
+        ul li{
+            width: 35px;
+            height: 35px;
+            position:relative;
+            margin-top: 2px;
+        }
+        ul li a{
+            border-radius: 3px 0 0 3px;
+        }
+        ul li a:first-child{
+            display: block;
+            width: 35px;
+            line-height: 35px;
+            background-color: #7a6e6e;
+            color:#fff;
+            text-align: center;
+            position:absolute;
+            z-index: 2;
+        }
+        ul li a:first-child i{
+            display: block;
+            font-size: 24px;
+
+        }
+        ul li a:last-child{
+            position:absolute;
+            right:-27px;
+            top:0px;
+            display: block;
+            width: 62px;
+            line-height: 35px;
+            color: #fff;
+            text-align: center;
+            background-color: #7a6e6e;
+            font-size: 12px;
+            transition: transform 500ms ease 100ms;
+            z-index: 1;
+        }
+        ul li:hover a:first-child{
+            background-color: #c81632;
+        }
+        ul li:hover a:last-child{
+            transform: translate(-58px,0px);
+            background-color: #c81632;
+        }
+        header{
+            width: 100%;
+            height: 500px;
+            background-color: #ccc;
+            font-size: 100px;
+            color:#fff;
+            text-align: center;
+        }
+        section{
+            width: 80%;
+            margin:0 auto;
+        }
+        section .box1,.box2,.box3,.box4{
+            width: 100%;
+            height: 500px;
+            font-size: 100px;
+            color:#fff;
+            text-align: center;
+        }
+        section .box1{
+            background-color: yellow;
+        }
+        section .box2{
+            background-color: purple;
+        }
+        section .box3{
+            background-color: brown;
+        }
+        section .box4{
+            background-color: green;
+        }
+
+
+
+
+        </style>
+    </head>
+    <body>
+        <button class="back" href="#">TOP</button>
+        <div class="search">
+            <input type="text" placeholder="搜索一下吧嘻嘻~" />
+        </div>
+        <!-- <div class="box1">
+            <div class="box2"></div>
+        </div> -->
+        <header>我是header</header>
+        <section>
+            <div class="box1">我是老大</div>
+            <div class="box2">我是老二</div>
+            <div class="box3">我是老三</div>
+            <div class="box4">我是老四</div>
+        </section>
+        <ul class="list">
+            <li>
+                <a href="javascript:;"><i class="iconfont icon-huiyuan"></i></a>
+                <a href="javascript:;">京东会员</a>
+            </li>
+            <li>
+                <a href="javascript:;"><i class="iconfont icon-gouwuche"></i></a>
+                <a href="javascript:;">购物车</a>
+            </li>
+            <li>
+                <a href="javascript:;"><i class="iconfont icon-xin"></i></a>
+                <a href="javascript:;">我的关注</a>
+            </li>
+            <li>
+                <a href="javascript:;"><i class="iconfont icon-shijian"></i></a>
+                <a href="javascript:;">我的足迹</a>
+            </li>
+            <li>
+                <a href="javascript:;"><i class="iconfont icon-news"></i></a>
+                <a href="javascript:;">我的消息</a>
+            </li>
+            <li>
+                <a href="javascript:;"><i class="iconfont icon-ya"></i></a>
+                <a href="javascript:;">咨询JIMI</a>
+            </li>
+            <li>
+                <a href="javascript:;"><i class="iconfont icon-fankuiyijian"></i></a>
+                <a href="javascript:;">反馈</a>
+            </li>
+        </ul>
+        <script src="js/jquery-3.3.1.js"></script>
+        <script>
+          // scroll 滚动条 滚动条事件
+          // 滚动条其实是属于浏览器窗口的 我们使用 $(window)选择浏览器窗口
+          $(window).scroll(function() {
+              // console.log(1)
+              // 获取滚动条 距顶部的距离 .scrollTop()
+              var topHeight = $(window).scrollTop()
+              console.log(topHeight)
+              if(topHeight > 100){
+                $('.back').stop().fadeIn(500)
+              }else{
+                $('.back').stop().fadeOut(500)
+              }
+              if(topHeight > 10){
+                $('.search').slideDown(300)
+              }else{
+                $('.search').slideUp(300)
+              }
+              if(topHeight > 100){
+                $('.list').show(500)
+              }else{
+                $('.list').hide(500)
+              }
+          });
+          // jquery动画有一个.stop()方法 该方法的作用是将stop之前的动画全部停止
+          // // jquery动画有一个.delay(时间)方法 该方法的作用是将动画延迟执行
+          // $('.box1').scroll(function() {
+          //     console.log(2)
+          // });
+          $('.back').click(function() {
+             // 让滚动条以动画形式 返回顶部
+             // 修改css 修改html或者body的scrollTop样式
+             $('html,body').animate({'scrollTop':0},1000)
+          });
+
+          $('.list li a:first-child').click(function() {
+              // 某个元素距离文档（body）顶部的距离 xx.offset().top xx代表某个html元素
+              // 某个元素距离文档（body）左边的距离 xx.offset().left xx代表某个html元素
+              // 将盒子距顶部距离 换成 滚动条距离
+              var ind = $(this).parent().index()
+              var topHeight1 = $('section>div').eq(ind).offset().top - 50
+              console.log(topHeight1)
+              $('html,body').animate({'scrollTop':topHeight1},1000)
+          });
+        </script>
+    </body>
+</html>

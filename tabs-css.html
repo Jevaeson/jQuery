@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Document</title>
+        <style>
+          *{
+            margin: 0;
+            padding: 0;
+            border:0;
+          }
+          a{
+            text-decoration: none;
+          }
+          ul{
+            list-style: none;
+          }
+          .tabs li{
+            float: left;
+            width: 80px;
+          }
+          .tabs li a{
+            display: block;
+            color:#000;
+            width: 100%;
+            line-height: 30px;
+            text-align: center;
+            border-bottom: 2px solid #fff;
+          }
+          .tabs .tab{
+            width: 320px;
+            height: 320px;
+            display:none;
+            position: absolute;
+            left:0;
+          }
+          .tabs .tab1{
+            background-color:#ccc;
+            display:block;
+          }
+          .tabs .tab2{
+            background-color:pink;
+          }
+          .tabs .tab3{
+            background-color:purple;
+          }
+          .tabs .tab4{
+            background-color:green;
+          }
+          .tabs li a:hover{
+            color:red;
+            border-bottom: 2px solid red;
+          }
+          .tabs li:nth-child(2):hover .tab2{
+            display:block;
+          }
+          .tabs li:nth-child(3):hover .tab3{
+            display:block;
+          }
+          .tabs li:nth-child(4):hover .tab4{
+            display:block;
+          }
+        </style>
+    </head>
+    <body>
+        <ul class="tabs">
+            <li>
+               <a href="#">话费</a>
+               <div class="tab tab1"></div>
+            </li>
+            <li>
+               <a href="#">机票</a>
+               <div class="tab tab2"></div>
+            </li>
+            <li>
+               <a href="#">酒店</a>
+               <div class="tab tab3"></div>
+            </li>
+            <li>
+               <a href="#">游戏</a>
+               <div class="tab tab4"></div>
+            </li>
+        </ul>
+    </body>
+</html>
